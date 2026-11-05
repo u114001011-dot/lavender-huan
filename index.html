@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7f0">
+  <meta name="description" content="黃芷薰的個人介紹：喜歡拍照、探索校園美食，也喜歡和朋友到處走走。">
+  <title>黃芷薰 | 校園裡見</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f6f7f0;
+      --ink: #173c32;
+      --muted: #64746a;
+      --green: #245c49;
+      --lime: #d7ed79;
+      --coral: #ef785d;
+      --line: rgba(23, 60, 50, .18);
+      --serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+      --sans: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.75;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+      border-bottom: 1px solid var(--line);
+    }
+    .wordmark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-decoration: none;
+    }
+    .wordmark-mark {
+      display: grid;
+      width: 30px;
+      aspect-ratio: 1;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--lime);
+      font-family: var(--serif);
+      font-size: 16px;
+    }
+    nav { display: flex; gap: 30px; }
+    nav a {
+      color: var(--muted);
+      font-size: 13px;
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+    nav a:hover, nav a:focus-visible { color: var(--coral); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: clamp(36px, 8vw, 104px);
+      min-height: 660px;
+      padding-block: 70px 84px;
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin: 0 0 25px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .13em;
+    }
+    .eyebrow::before { width: 28px; height: 2px; background: var(--coral); content: ""; }
+    h1 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(54px, 8vw, 96px);
+      font-weight: 500;
+      line-height: 1.18;
+    }
+    h1 span { color: var(--coral); }
+    .study {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin: 23px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .study strong { color: var(--ink); font-weight: 600; }
+    .hero-copy {
+      max-width: 470px;
+      margin: 27px 0 0;
+      color: #435d51;
+      font-size: 16px;
+      line-height: 2.05;
+    }
+    .hero-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 29px;
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 6px;
+    }
+    .hero-link span { color: var(--coral); font-size: 20px; }
+    .portrait-wrap { position: relative; width: min(100%, 430px); justify-self: end; }
+    .portrait-wrap::before {
+      position: absolute;
+      z-index: -1;
+      inset: 18px -18px -18px 18px;
+      border: 1px solid var(--green);
+      content: "";
+    }
+    .portrait {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center 43%;
+      background: #d9e3d6;
+    }
+    .photo-note {
+      position: absolute;
+      right: -14px;
+      bottom: 26px;
+      padding: 8px 14px;
+      background: var(--lime);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 13px;
+      transform: rotate(-4deg);
+    }
+
+    .ticker {
+      overflow: hidden;
+      border-block: 1px solid var(--line);
+      background: #e8eedf;
+    }
+    .ticker-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-block: 17px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      white-space: nowrap;
+    }
+    .ticker-inner span::after { margin-left: 20px; color: var(--coral); content: "✳"; }
+
+    section.content-section { padding-block: 96px; }
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .section-kicker { margin: 0 0 8px; color: var(--coral); font-size: 12px; font-weight: 700; letter-spacing: .1em; }
+    h2 { margin: 0; font-family: var(--serif); font-size: clamp(30px, 4vw, 46px); font-weight: 500; line-height: 1.4; }
+    .section-note { max-width: 290px; margin: 0 0 4px; color: var(--muted); font-size: 13px; }
+    .interests {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 18px;
+    }
+    .interest { min-height: 218px; padding: 30px 28px 20px 0; }
+    .interest + .interest { padding-left: 28px; border-left: 1px solid var(--line); }
+    .interest-number { color: var(--coral); font-family: var(--serif); font-size: 15px; }
+    .interest h3 { margin: 22px 0 9px; font-family: var(--serif); font-size: 25px; font-weight: 500; }
+    .interest p { max-width: 280px; margin: 0; color: var(--muted); font-size: 14px; }
+
+    .invite {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 30px;
+      overflow: hidden;
+      padding: 44px clamp(24px, 6vw, 72px);
+      background: var(--green);
+      color: #fff;
+    }
+    .invite::after {
+      position: absolute;
+      top: -85px;
+      right: 20%;
+      width: 210px;
+      aspect-ratio: 1;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 50%;
+      box-shadow: 0 0 0 24px rgba(255,255,255,.035), 0 0 0 48px rgba(255,255,255,.025);
+      content: "";
+      pointer-events: none;
+    }
+    .invite .section-kicker { color: var(--lime); }
+    .invite h2 { max-width: 620px; }
+    .invite p { margin: 10px 0 0; color: #d8e6db; font-size: 14px; }
+    .invite-link {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      gap: 15px;
+      padding: 0 19px;
+      background: var(--lime);
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background .2s ease, transform .2s ease;
+    }
+    .invite-link:hover { background: #e4f6a5; transform: translateY(-2px); }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-block: 25px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 36px, 560px); }
+      .topbar { min-height: 66px; }
+      nav { gap: 16px; }
+      nav a { font-size: 12px; }
+      .hero { grid-template-columns: 1fr; gap: 48px; min-height: 0; padding-block: 58px 66px; }
+      .hero-copy { font-size: 15px; }
+      .portrait-wrap { width: min(82%, 390px); justify-self: center; margin-right: 10px; }
+      .photo-note { right: -10px; }
+      .ticker-inner { justify-content: flex-start; width: max-content; min-width: 100%; }
+      .ticker-inner span { flex: 0 0 auto; }
+      section.content-section { padding-block: 70px; }
+      .section-heading { align-items: start; flex-direction: column; gap: 12px; }
+      .interests { grid-template-columns: 1fr; margin-top: 0; }
+      .interest, .interest + .interest { min-height: 0; padding: 22px 0; border-left: 0; }
+      .interest + .interest { border-top: 1px solid var(--line); }
+      .interest h3 { margin-top: 12px; }
+      .invite { grid-template-columns: 1fr; gap: 22px; padding-block: 36px; }
+      .invite-link { justify-self: start; }
+    }
+    @media (max-width: 420px) {
+      .wrap { width: calc(100% - 30px); }
+      .wordmark { font-size: 12px; }
+      nav { gap: 11px; }
+      nav a { font-size: 11px; }
+      h1 { font-size: 56px; }
+      footer { flex-direction: column; gap: 4px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap topbar">
+    <a class="wordmark" href="#top" aria-label="黃芷薰，回到首頁">
+      <span class="wordmark-mark" aria-hidden="true">薰</span>
+      <span>黃芷薰的校園日常</span>
+    </a>
+    <nav aria-label="主要導覽">
+      <a href="#about">關於我</a>
+      <a href="#likes">日常喜好</a>
+      <a href="#hello">一起玩吧</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="wrap hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">HELLO, CAMPUS!</p>
+        <h1 id="page-title">嗨，我是<br>黃芷<span>薰</span></h1>
+        <p class="study"><strong>中國醫藥大學・大二</strong><span>學號 114001011</span></p>
+        <p class="hero-copy">常常背著大帆布包在校園裡穿梭。喜歡拍照、尋找好吃的校園周邊美食，也喜歡沒課時和朋友隨性走走。</p>
+        <a class="hero-link" href="#about">來認識一下 <span aria-hidden="true">↘</span></a>
+      </div>
+      <div class="portrait-wrap">
+        <img class="portrait" src="照片.jpg" alt="黃芷薰的個人照片">
+        <span class="photo-note">今天也出去走走吧！</span>
+      </div>
+    </section>
+
+    <div class="ticker" aria-label="我的校園日常">
+      <div class="wrap ticker-inner">
+        <span>帆布包隨身帶</span><span>相機準備好了</span><span>校園美食探索中</span><span>散步搭子招募中</span>
+      </div>
+    </div>
+
+    <section class="wrap content-section" id="about" aria-labelledby="about-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">A LITTLE ABOUT ME</p>
+          <h2 id="about-title">好相處，也有一點少根筋。</h2>
+        </div>
+        <p class="section-note">隨和是日常設定，偶爾少根筋也是可愛的小插曲。</p>
+      </div>
+      <div class="interests" id="likes">
+        <article class="interest">
+          <span class="interest-number">01 / 觀察生活</span>
+          <h3>把喜歡的瞬間拍下來</h3>
+          <p>散步時看到有趣的光線或風景，就想拿起相機記錄一下。</p>
+        </article>
+        <article class="interest">
+          <span class="interest-number">02 / 校園周邊</span>
+          <h3>探索下一家好吃的</h3>
+          <p>美食清單持續更新中，校園附近有什麼好店也歡迎推薦給我。</p>
+        </article>
+        <article class="interest">
+          <span class="interest-number">03 / 隨性出發</span>
+          <h3>有人一起走走最好</h3>
+          <p>沒課的時候和朋友到處晃晃，不用排滿行程也很開心。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap invite" id="hello" aria-labelledby="invite-title">
+      <div>
+        <p class="section-kicker">NICE TO MEET YOU</p>
+        <h2 id="invite-title">想吃飯、讀書，或參加有趣的活動？</h2>
+        <p>隨時都可以揪我。很期待認識新朋友，也期待一起體驗好玩的事！</p>
+      </div>
+      <a class="invite-link" href="#top">下次校園見 <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <span>黃芷薰・中國醫藥大學</span>
+    <span>很高興認識你，請多多指教！</span>
+  </footer>
+</body>
+</html>
